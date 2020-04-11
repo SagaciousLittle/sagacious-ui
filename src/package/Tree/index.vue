@@ -1,6 +1,6 @@
 <template>
   <div class="sag-tree">
-    <div class="tree-item" v-for="o in data" :key="o.id">
+    <div class="tree-item" :class="isBottom(o) && 'tree-item--bottom'" v-for="o in data" :key="o.id">
       <div class="tree-item-line">
         <img
         v-if="!isBottom(o)"
@@ -80,6 +80,7 @@ export default {
   .tree-item-line {
     display: flex;
     align-items: center;
+    height: 1.5rem;
     .tree-item-arrow {
       $s: 20px;
       width: $s;
@@ -92,6 +93,9 @@ export default {
     .tree-item-title {
       display: inline-flex;
     }
+  }
+  &.tree-item--bottom {
+    display: inline-flex;
   }
 }
 </style>
